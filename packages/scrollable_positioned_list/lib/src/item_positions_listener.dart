@@ -21,10 +21,11 @@ abstract class ItemPositionsListener {
 /// Position information for an item in the list.
 class ItemPosition {
   /// Create an [ItemPosition].
-  const ItemPosition(
-      {required this.index,
-      required this.itemLeadingEdge,
-      required this.itemTrailingEdge});
+  const ItemPosition({
+    required this.index,
+    required this.itemLeadingEdge,
+    required this.itemTrailingEdge,
+  });
 
   /// Index of the item.
   final int index;
@@ -42,12 +43,11 @@ class ItemPosition {
   final double itemTrailingEdge;
 
   @override
-  bool operator ==(dynamic other) {
-    if (other.runtimeType != runtimeType) return false;
-    final ItemPosition otherPosition = other;
-    return otherPosition.index == index &&
-        otherPosition.itemLeadingEdge == itemLeadingEdge &&
-        otherPosition.itemTrailingEdge == itemTrailingEdge;
+  bool operator ==(Object other) {
+    return other is ItemPosition &&
+        other.index == index &&
+        other.itemLeadingEdge == itemLeadingEdge &&
+        other.itemTrailingEdge == itemTrailingEdge;
   }
 
   @override
